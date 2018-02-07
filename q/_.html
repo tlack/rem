@@ -1,0 +1,26 @@
+
+  <style>
+  * { font-family:arial,helvetica,sans-serif; margin: padding: 0; } body { font-size: 8px; }
+  a { color: black; }
+	#w { background: $$sbgh$$; height:1404px; width: 1872px; }
+	#b { padding-top: 70px; width: 1872px; }
+	#b * { background: $$sbgh$$; cursor:pointer; display: inline-block; font-size: 64px; width: 140px; margin: 0 140px; padding: 70px; text-align: center; height: 70px; }
+  </style>
+  <script>
+  function $(q){return document.querySelectorAll(q);}
+  function $h(q,h){if(!h)return function(h){return $h(q,h)}; $(q)[0].innerHTML=h; return h}
+  function _0(v){return v} function _1(v){console.log(v);return v}
+  function _t(x){return typeof(x)} function _tn(x){return typeof(x)=='number'} function _to(x){return typeof(x)=='object'}
+  function _fn(x){return _tn(x)?x.toFixed(3):x} function _fpn(x){return _tn(x)?x.toFixed(6):x}
+  function _null(v){return typeof(v)=='undefined'} function _arr(v){return Array.isArray(v)}
+  function _do(a,f){var k=Object.keys(a),r=[];for(var i=0;i<k.length;i++){r.push(f(a[k[i]],k[i]))};return r};
+  function _deep(a,f){if(!a||!_to(a))return a; var k=Object.keys(a),r=[];for(var i=0;i<k.length;i++){var kk=k[i],aki=a[kk];r.push(_to(aki)?_deep(aki,f):f(aki,kk))};return r};
+  function bl(x){return'<a target=_blank href=http://www.binance.com/tradeDetail.html?symbol='+x+'>'+x+'</a>'}
+  function enclose(tag,obj){if(_null(obj))return function(o){return enclose(tag,o)};return "<"+tag+">"+obj+"</"+tag+">"}
+  function hje(r){console.log('http error',r);}
+  function hjr(r,cb){return function(){if (r.status>=200&&r.status<400)cb(r.responseText);else hje(r);}}
+  function hjg(u,cb){var r=new XMLHttpRequest();r.open('GET',u,true);r.onload=hjr(r,cb);r.onerror=hje;r.send();}
+  function raze(o){var r=o[0];for(var i=1;i<o.length;i++)r=r+o[i];return r}
+  </script>
+
+

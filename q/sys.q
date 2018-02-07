@@ -1,7 +1,4 @@
-/ screen related doodling
-/ do not take this as runable
-
-PX:1872;
+PX:1872;                               / <- CONFIG
 PY:1404;
 AR:PY%PX;
 DPI:226;
@@ -11,43 +8,32 @@ MHZ:1;
 BAT:3000;
 SBGH:"#d6d9de";
 BTNS:`pwr`prev`home`next;
-NODE:`test;
-show value `.
 
-xs:string;
+HTTP:1872;
+APP:0;
+INC:`:_.html;
+BOOT:.z.T;
+APPS:`clock`welcome!`:1882,`:1883;
 
-system 0N!" "sv each 0N! raze ("c";xs each RY,RX); / set Q col/row fmt options for 'show'
+\q a-clock.q 1882
 
-/ idea: make it very easy to pop a "new object in the thing" into the system
-/ verb is just: rem
-rem:{
-	/ pretend we are poping up a new window onto the stack thingy here, in a non-annoying way
-	show (`rem; x)
-	}
-
-/ idea: define callbacks for common functions in C: each program defines their own, all global, no handles
-Cmd:()!();
-Cmd[`dfl]:{rem `defaultclick};
-show Cmd;
-
-/ idea: represent things that can be user interface items - in a table! easy to find things
-/ parents allow us to nest scenes, maybe; these would build symbolically into other table elements
-/ we'd call cb() when a child is inserted perhaps? or just a tap annd/or long tap? not sure..
-Glyph:([id:()] ty:(); isvis:(); parent:(); bbox:(); cb:());
-Glyph,:enlist (`; `root; 1b; `; (0,0,PX,PY); Cmd`dfl);
-show Glyph
-
-ByType::select from Glyph where isvis=1,ty=`rect
-show Rects
-display:{show (PX,PY)#x}
-Pixmaps::sbuf:0N! #[;0b]PX*PY
-.z.ph:{if[8<count x[0];layout[]}
+show value `.;                         / aaaand breathe out
+sx:string;                             / <- GENERAL LIBRARY
+gid:{`$(0N!,/["";4?"c"$65+til 26],sx (.z.T-BOOT) mod 1e6)}
+show gid[];
 readf:{"\n"sv read0 x};
-tmpl:{
-	s:readf x; s:ssr[s;"$$include$$";readf`:_.html];
-	}
-layout:{ /ugh
-	("<!doctype html><html><head><title>test</title></head>";
-	 "<body><script id=gs></script><div id=w></div></body>
+show readf INC;
+tmpl:{ssr[;"$$sbgh$$";SBGH] ssr[;"$$inc$$";readf INC] x}
+show tmpl "dur";
 
+layout:{                              / <- HTML EMULATOR
+	tmpl raze ("<!doctype html><html><head><title>rem ";x;"</title></head>";
+	 "<body>$$inc$$<div id=w></div>";
+	 "<div id=b><a id=p>prev</a><a id=h>home</a><a id=n>next</a></div>")}
+hr:{"\r\n" sv ("HTTP/1.0 301 move";"Location: ",x;"Connection: close";"";"")}
+newws:{hr "/clock/",sx gid[]}
+.z.ph:{0N!x;0N! $[not "?" in u:x[0]; newws[]; .h.hy[`html;]layout u]}
+
+system"p ",sx HTTP;                   / <- SYSTEM CONFIG/STARTUP
+show (`running;HTTP);
 
