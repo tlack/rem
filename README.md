@@ -81,3 +81,8 @@ Micro USB charging port
 	Use the charging port and the attached Micro USB cable to charge your reMarkable.
 
 ````
+
+## Design template
+
+![Large design template](https://raw.githubusercontent.com/tlack/rem/master/img/blanksc.png)
+
