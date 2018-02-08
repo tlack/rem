@@ -1,6 +1,14 @@
 # rem
 reMarkable app ideas and design files
 
+## whats this
+
+stuff to get started, misc
+
+## rem: Q-based rapid app dev for remarkable
+
+work in progress, see `q/`
+
 ## key spex
 
 ```
@@ -82,7 +90,19 @@ Micro USB charging port
 
 ````
 
-## Design template
+## design template
 
 ![Large design template](https://raw.githubusercontent.com/tlack/rem/master/img/blanksc.png)
+
+## license 
+
+none
+
+## who 
+
+tlack
+
+## trademark
+
+q/kdb/kx is a trademark of kx systems and i am not affiliated with them.
 

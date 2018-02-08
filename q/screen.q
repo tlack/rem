@@ -10,12 +10,10 @@ SBGH:"#d6d9de";
 BTNS:`pwr`prev`home`next;
 
 HTTP:1872;
-APP:0;
 INC:`:_.html;
 BOOT:.z.T;
-APPS:`clock`welcome!`:1882,`:1883;
-
-\q a-clock.q 1882
+APP:1882
+\q a-draw.q 1882
 
 show value `.;                         / aaaand breathe out
 sx:string;                             / <- GENERAL LIBRARY
